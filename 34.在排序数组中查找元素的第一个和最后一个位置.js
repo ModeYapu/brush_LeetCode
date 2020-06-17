@@ -17,4 +17,3 @@ var searchRange = function (nums, target) {
   return [firstIndex, lastIndex];
 };
 // @lc code=end
-8
