@@ -10,31 +10,18 @@
  * @return {number}
  */
 var reverse = function (x) {
-  let str = x.toString();
-  let arr = str.split("");
-  if (arr[0] === "-") {
-    arr.shift();
-    arr.reverse();
-    if (arr[0] === "0") {
-      arr.shift();
-    }
+  //   let num = Math.abs(x).toString().split("").reverse().join("");
+  //   if (x < 0) {
+  //     return num <= 2147483647 ? -num : 0;
+  //   } else {
+  //     return num < 2147483647 ? num : 0;
+  //   }
 
-    let num = Number(arr.join(""));
-    if (num > Math.pow(2, -31) && num < Math.pow(2, 31) - 1) {
-      return -num;
-    }
-    return 0;
-  } else {
-    arr.reverse();
-    if (arr[0] === "0") {
-      arr.shift();
-    }
-    console.log(arr.join(""));
-    let num = Number(arr.join(""));
-    if (num > Math.pow(2, -31) && num < Math.pow(2, 31) - 1) {
-      return num;
-    }
-    return 0;
+  let result = 0;
+  while (x !== 0) {
+    result = result * 10 + (x % 10);
+    x = (x / 10) | 0;
   }
+  return (result | 0) === result ? result : 0;
 };
 // @lc code=end
